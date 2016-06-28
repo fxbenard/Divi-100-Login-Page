@@ -1,9 +1,8 @@
 <?php
-
 /**
-* @package Custom_Login_Page
-* @version 0.0.1
-*/
+ * @package Custom_Login_Page
+ * @version 0.0.1
+ */
 
 /*
 * Plugin Name: Divi 100 Login Page
@@ -12,6 +11,7 @@
 * Author: Elegant Themes
 * Version: 0.0.1
 * Author URI: http://elegantthemes.com
+* Text Domain: divi-100-login-page
 * License: GPL3
 */
 
@@ -26,14 +26,16 @@ class ET_Divi_100_Custom_Login_Page_Config {
 	 */
 	function __construct() {
 		add_filter( 'et_divi_100_settings', array( $this, 'register' ) );
-		add_action( 'plugins_loaded',       array( $this, 'init' ) );
+		add_action( 'plugins_loaded', array( $this, 'init' ) );
+		add_action( 'plugins_loaded', array( $this, 'add_localization' ), 1 );
+
 	}
 
 	/**
-	* Gets the instance of the plugin
-	*/
-	public static function instance(){
-		if ( null === self::$instance ){
+	 * Gets the instance of the plugin
+	 */
+	public static function instance() {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -51,7 +53,7 @@ class ET_Divi_100_Custom_Login_Page_Config {
 
 		return array(
 			'main_prefix'        => $main_prefix,
-			'plugin_name'        => __( 'Login Page' ),
+			'plugin_name'        => __( 'Login Page', 'divi-100-login-page' ),
 			'plugin_slug'        => $plugin_slug,
 			'plugin_id'          => "{$main_prefix}{$plugin_slug}",
 			'plugin_prefix'      => "{$main_prefix}{$plugin_slug}-",
@@ -73,15 +75,24 @@ class ET_Divi_100_Custom_Login_Page_Config {
 
 		return $settings;
 	}
+	/**
+	 * Adds plugin localization
+	 * Domain: divi-100-login-page
+	 *
+	 * @return void
+	 */
+	function add_localization() {
+		load_plugin_textdomain( 'divi-100-login-page', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	}
 
 	/**
 	 * Init plugin after all plugins has been loaded
 	 */
 	function init() {
-		// Load Divi 100 Setup
+		// Load Divi 100 Setup.
 		require_once( plugin_dir_path( __FILE__ ) . 'divi-100-setup/divi-100-setup.php' );
 
-		// Load Login Page
+		// Load Login Page.
 		ET_Divi_100_Custom_Login_Page::instance();
 	}
 }
@@ -102,8 +113,8 @@ class ET_Divi_100_Custom_Login_Page {
 	/**
 	 * Gets the instance of the plugin
 	 */
-	public static function instance(){
-		if ( null === self::$instance ){
+	public static function instance() {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
@@ -113,12 +124,12 @@ class ET_Divi_100_Custom_Login_Page {
 	/**
 	 * Constructor
 	 */
-	private function __construct(){
+	private function __construct() {
 		$this->config   = ET_Divi_100_Custom_Login_Page_Config::info();
 		$this->settings = maybe_unserialize( get_option( $this->config['plugin_id'] ) );
 		$this->utils    = new Divi_100_Utils( $this->settings );
 
-		// Initialize if Divi is active
+		// Initialize if Divi is active.
 		if ( et_divi_100_is_active() ) {
 			$this->init();
 		}
@@ -129,7 +140,7 @@ class ET_Divi_100_Custom_Login_Page {
 	 *
 	 * @return void
 	 */
-	private function init(){
+	private function init() {
 		add_filter( 'login_body_class',      array( $this, 'body_class' ) );
 		add_action( 'login_footer',          array( $this, 'print_styles' ) );
 		add_filter( 'login_headerurl',       array( $this, 'modify_login_logo_url' ) );
@@ -142,7 +153,7 @@ class ET_Divi_100_Custom_Login_Page {
 				'preview_dir_url' => plugin_dir_url( __FILE__ ) . 'assets/img/preview/',
 				'title'       => __( 'Login Page' ),
 				'fields'      => $this->setting_fields(),
-				'button_save_text' => __( 'Save Changes' ),
+				'button_save_text' => __( 'Save Changes', 'divi-100-login-page' ),
 			);
 
 			new Divi_100_Settings( $settings_args );
@@ -221,60 +232,60 @@ class ET_Divi_100_Custom_Login_Page {
 				'preview_prefix'       => 'style-',
 				'preview_height'       => 182,
 				'id'                   => 'style',
-				'label'                => __( 'Select Style' ),
-				'description'          => __( 'This style will be applied to your login screen' ),
+				'label'                => __( 'Select Style', 'divi-100-login-page' ),
+				'description'          => __( 'This style will be applied to your login screen', 'divi-100-login-page' ),
 				'options'              => $this->get_styles(),
 				'sanitize_callback'    => 'sanitize_text_field',
 			),
 			'background-color' => array(
 				'type'                 => 'color',
 				'id'                   => 'background-color',
-				'label'                => __( 'Select Background Color' ),
-				'description'          => __( 'Use custom color for your login screen background' ),
+				'label'                => __( 'Select Background Color', 'divi-100-login-page' ),
+				'description'          => __( 'Use custom color for your login screen background', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'et_divi_100_sanitize_alpha_color',
 				'default'              => $this->get_style_default( $selected_style, 'background-color' ),
 			),
 			'background-image' => array(
 				'type'                 => 'upload',
 				'id'                   => 'background-image',
-				'label'                => __( 'Select Background Image' ),
-				'description'          => __( 'Use custom image for your login screen background' ),
-				'button_active_text'   => __( 'Change Background' ),
-				'button_inactive_text' => __( 'Select Background' ),
-				'button_remove_text'   => __( 'Remove Background' ),
+				'label'                => __( 'Select Background Image', 'divi-100-login-page' ),
+				'description'          => __( 'Use custom image for your login screen background', 'divi-100-login-page' ),
+				'button_active_text'   => __( 'Change Background', 'divi-100-login-page' ),
+				'button_inactive_text' => __( 'Select Background', 'divi-100-login-page' ),
+				'button_remove_text'   => __( 'Remove Background', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'esc_url',
 			),
 			'logo-image' => array(
 				'type'                 => 'upload',
 				'id'                   => 'logo-image',
-				'label'                => __( 'Select Logo Image' ),
-				'description'          => __( 'Use your own logo for your login screen' ),
-				'button_active_text'   => __( 'Change Logo' ),
-				'button_inactive_text' => __( 'Select Logo' ),
-				'button_remove_text'   => __( 'Remove Logo' ),
+				'label'                => __( 'Select Logo Image', 'divi-100-login-page' ),
+				'description'          => __( 'Use your own logo for your login screen', 'divi-100-login-page' ),
+				'button_active_text'   => __( 'Change Logo', 'divi-100-login-page' ),
+				'button_inactive_text' => __( 'Select Logo', 'divi-100-login-page' ),
+				'button_remove_text'   => __( 'Remove Logo', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'esc_url',
 			),
 			'logo-url' => array(
 				'type'                 => 'url',
 				'id'                   => 'logo-url',
-				'label'                => __( 'Modify Logo URL' ),
+				'label'                => __( 'Modify Logo URL', 'divi-100-login-page' ),
 				'placeholder'          => esc_url( home_url() ),
-				'description'          => __( 'Use your own URL for logo on login screen' ),
+				'description'          => __( 'Use your own URL for logo on login screen', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'esc_url',
 			),
 			'button-background-color' => array(
 				'type'                 => 'color',
 				'id'                   => 'button-background-color',
-				'label'                => __( 'Select Button Background Color' ),
-				'description'          => __( 'Use custom color for background button' ),
+				'label'                => __( 'Select Button Background Color', 'divi-100-login-page' ),
+				'description'          => __( 'Use custom color for background button', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'et_divi_100_sanitize_alpha_color',
 				'default'              => $this->get_style_default( $selected_style, 'button-background-color' ),
 			),
 			'button-text-color' => array(
 				'type'                 => 'color',
 				'id'                   => 'button-text-color',
-				'label'                => __( 'Select Button Text Color' ),
-				'description'          => __( 'Use custom color text button' ),
+				'label'                => __( 'Select Button Text Color', 'divi-100-login-page' ),
+				'description'          => __( 'Use custom color text button', 'divi-100-login-page' ),
 				'sanitize_callback'    => 'et_divi_100_sanitize_alpha_color',
 				'default'              => $this->get_style_default( $selected_style, 'button-text-color' ),
 			),
@@ -283,23 +294,25 @@ class ET_Divi_100_Custom_Login_Page {
 
 	/**
 	 * List of valid styles
+	 *
 	 * @return void
 	 */
 	function get_styles() {
 		return apply_filters( $this->config['plugin_prefix'] . 'styles', array(
-			''  => __( 'Default' ),
-			'1' => __( 'One' ),
-			'2' => __( 'Two' ),
-			'3' => __( 'Three' ),
-			'4' => __( 'Four' ),
-			'5' => __( 'Five' ),
-			'6' => __( 'Six' ),
-			'7' => __( 'Seven' ),
+			''  => __( 'Default', 'divi-100-login-page' ),
+			'1' => __( 'One', 'divi-100-login-page' ),
+			'2' => __( 'Two', 'divi-100-login-page' ),
+			'3' => __( 'Three', 'divi-100-login-page' ),
+			'4' => __( 'Four', 'divi-100-login-page' ),
+			'5' => __( 'Five', 'divi-100-login-page' ),
+			'6' => __( 'Six', 'divi-100-login-page' ),
+			'7' => __( 'Seven', 'divi-100-login-page' ),
 		) );
 	}
 
 	/**
 	 * Get selected style
+	 *
 	 * @return string
 	 */
 	function get_selected_style() {
@@ -310,15 +323,16 @@ class ET_Divi_100_Custom_Login_Page {
 
 	/**
 	 * Add specific class to <body>
+	 *
 	 * @return array
 	 */
 	function body_class( $classes ) {
-		// Get selected style
+		// Get selected style.
 		$selected_style = $this->get_selected_style();
 
-		// Assign specific class to <body> if needed
+		// Assign specific class to <body> if needed.
 		if ( '' !== $selected_style ) {
-			$classes[] = esc_attr(  $this->config['plugin_prefix'] . '-style-' . $selected_style . ' et_divi_100_custom_login_page');
+			$classes[] = esc_attr( $this->config['plugin_prefix'] . '-style-' . $selected_style . ' et_divi_100_custom_login_page' );
 		}
 
 		return $classes;
@@ -326,12 +340,13 @@ class ET_Divi_100_Custom_Login_Page {
 
 	/**
 	 * Load front end scripts
+	 *
 	 * @return void
 	 */
 	function enqueue_frontend_scripts() {
 		wp_enqueue_style( 'custom-login-pages', plugin_dir_url( __FILE__ ) . 'assets/css/style.css', array(), $this->config['plugin_version'] );
 		wp_enqueue_style( 'custom-login-pages-icon-font', plugin_dir_url( __FILE__ ) . 'assets/css/ionicons.min.css', array(), $this->config['plugin_version'] );
-		wp_enqueue_script( 'custom-login-pages-scripts', plugin_dir_url( __FILE__ ) . 'assets/js/scripts.js', array( 'jquery'), $this->config['plugin_version'], true );
+		wp_enqueue_script( 'custom-login-pages-scripts', plugin_dir_url( __FILE__ ) . 'assets/js/scripts.js', array( 'jquery' ), $this->config['plugin_version'], true );
 	}
 
 	/**
@@ -342,7 +357,7 @@ class ET_Divi_100_Custom_Login_Page {
 
 		if ( ! $custom_url || '' === $custom_url ) {
 			$settings = $this->setting_fields();
-			$custom_url =  $settings['logo-url']['placeholder'];
+			$custom_url = $settings['logo-url']['placeholder'];
 		}
 
 		return $custom_url;
@@ -350,6 +365,7 @@ class ET_Divi_100_Custom_Login_Page {
 
 	/**
 	 * Print background image on login page
+	 *
 	 * @return void
 	 */
 	function print_styles() {
