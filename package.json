@@ -22,8 +22,27 @@
   "bugs": {
     "url": "https://github.com/andyhqtran/divi-100-login-page/issues"
   },
-  "homepage": "https://github.com/andyhqtran/divi-100-login-page#readme",
+  "contributors": {
+      "name": "FX Bénard",
+      "url": "fxbenard.com"
+    },
+  "homepage": "https://github.com/fxbenard/divi-100-login-page#readme",
   "devDependencies": {
+    "grunt": "^1.0.0",
+    "grunt-checktextdomain": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compress": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-rename": "*",
+    "grunt-exec": "*",
+    "grunt-newer": "*",
+    "grunt-notify": "*",
+    "grunt-potomo": "*",
+    "grunt-text-replace": "*",
+    "grunt-wp-i18n": "*",
+    "grunt-wp-readme-to-markdown": "*",
+    "load-grunt-config": "*",
+    "load-grunt-tasks": "*",
     "autoprefixer": "^6.3.6",
     "concurrently": "^2.1.0",
     "csscomb": "^3.1.8",
