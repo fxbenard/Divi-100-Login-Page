@@ -1,7 +1,7 @@
-# Login Page
+# Divi 100 Login Page
 ![Login Page Preview Image](preview.png)
 
-The **Divi 100 - Login Page Plugin** is made for Divi as apart of the [Divi 100 series](www.elegantthemes.com/blog/theme-sneak-peeks/the-divi-100-marathon-and-the-countdown-to-divi-3-0) by Elegant Themes. This plugin applies custom styles to your WordPress login page.
+This plugin is a fork of **Divi 100 - Login Page Plugin** made for Divi as apart of the [Divi 100 series](www.elegantthemes.com/blog/theme-sneak-peeks/the-divi-100-marathon-and-the-countdown-to-divi-3-0) by Elegant Themes. This plugin applies custom styles to your WordPress login page. He's fully i18n ready and French translated.
 
 ## What's Included
 ```
@@ -39,14 +39,18 @@ Divi-100-Login-Page
 │   ├── divi-100-setup.php
 │   └── js
 │       └── admin-scripts.js
+├── languages
+│   ├── divi-100-login-page.pot
+│   ├── divi-100-login-page-fr_FR.po
+│   └── divi-100-login-page-fr_FR.mo
 ├── login-page.php
 └── preview.png
 
-9 directories, 26 files
+10 directories, 29 files
 ```
 
 ## Installation
-1. You can download the latest release [here](https://github.com/andyhqtran/Divi-100-Login-Page/releases).
+1. You can download the latest release [here](https://github.com/fxbenard/Divi-100-Login-Page/releases).
 2. Once downloaded, head over the **Plugins** tab in your control panel and hit **Add New**
 3. Activate the plugin.
 
@@ -64,7 +68,7 @@ When opening an issue, please make sure you assign the proper label. For example
 - [Unsplash](https://unsplash.com/)
 
 ## License
-Copyright © 2016 [Elegant Themes](http://elegantthemes.com). Code released undered the [GPL License](https://github.com/andyhqtran/divi-100-login-page/blob/master/LICENSE).
+Copyright © 2016 [Elegant Themes](http://elegantthemes.com). Code released undered the [GPL License](https://github.com/fxbenard/divi-100-login-page/blob/master/LICENSE).
 
 >    This program is free software: you can redistribute it and/or modify
 >    it under the terms of the GNU General Public License as published by
