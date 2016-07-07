@@ -26,6 +26,22 @@
       "name": "FX Bénard",
       "url": "fxbenard.com"
     },
+  "directories": {
+    "js": "./assets/js",
+    "css": "./assets/css",
+    "build": "./build",
+    "languages": "./languages"
+  },
+  "pot": {
+    "type": "wp-plugin",
+    "textdomain": "divi-100-login-page",
+    "src": "login-page.php",
+    "header": {
+      "bugs": "https://fxbenard.com/",
+      "team": "fxbenard <fx@fxbenard.com>",
+      "last_translator": "fxbenard <fx@fxbenard.com>"
+    }
+  },
   "homepage": "https://github.com/fxbenard/divi-100-login-page#readme",
   "devDependencies": {
     "grunt": "^1.0.0",
