@@ -1,7 +1,7 @@
 # Divi 100 Login Page
 ![Login Page Preview Image](preview.png)
 
-This plugin is a fork of **Divi 100 - Login Page Plugin** made for Divi as apart of the [Divi 100 series](www.elegantthemes.com/blog/theme-sneak-peeks/the-divi-100-marathon-and-the-countdown-to-divi-3-0) by Elegant Themes. This plugin applies custom styles to your WordPress login page. He's fully i18n ready and French translated.
+This plugin is a fork of **Divi 100 - Login Page Plugin** made for Divi as apart of the [Divi 100 series](www.elegantthemes.com/blog/theme-sneak-peeks/the-divi-100-marathon-and-the-countdown-to-divi-3-0) by Elegant Themes. This plugin applies custom styles to your WordPress login page, fully i18n ready and French translated.
 
 ## What's Included
 ```
