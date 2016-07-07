@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Divi 100 Login Page\n"
-"POT-Creation-Date: 2016-06-22 09:05+0200\n"
-"PO-Revision-Date: 2016-06-22 09:18+0200\n"
+"Report-Msgid-Bugs-To: https://fxbenard.com/\n"
+"POT-Creation-Date: 2016-07-05 07:32:13+00:00\n"
+"PO-Revision-Date: 2016-07-05 09:32+0200\n"
 "Last-Translator: FX Bénard <fx@fxbenard.com>\n"
 "Language-Team: FX Bénard <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
@@ -44,7 +45,8 @@ msgstr "Sélectionner une image"
 msgid "Use This Image"
 msgstr "Utiliser cette image"
 
-#: divi-100-setup/class-divi-100-settings.php:78 login-page.php:156
+#: divi-100-setup/class-divi-100-settings.php:78
+#: divi-100-setup/class-divi-100-settings.php:310 login-page.php:156
 msgid "Save Changes"
 msgstr "﻿Enregistrer les modifications"
 
@@ -202,27 +204,23 @@ msgstr "﻿Six"
 msgid "Seven"
 msgstr "Sept"
 
-#. Plugin Name of the plugin/theme
-msgid "Divi 100 Login Page"
-msgstr "Divi 100 Login Page"
-
-#. Plugin URI of the plugin/theme
-msgid "https://elegantthemes.com/"
-msgstr "https://elegantthemes.com/"
-
 #. Description of the plugin/theme
 msgid "This plugin gives you the option to customize your login screen"
 msgstr ""
 "Cette extension vous donne la possibilité de personnaliser votre écran de "
 "connexion"
 
-#. Author of the plugin/theme
-msgid "Elegant Themes"
-msgstr "Elegant Themes"
+#~ msgid "Divi 100 Login Page"
+#~ msgstr "Divi 100 Login Page"
 
-#. Author URI of the plugin/theme
-msgid "http://elegantthemes.com"
-msgstr "http://elegantthemes.com"
+#~ msgid "https://elegantthemes.com/"
+#~ msgstr "https://elegantthemes.com/"
+
+#~ msgid "Elegant Themes"
+#~ msgstr "Elegant Themes"
+
+#~ msgid "http://elegantthemes.com"
+#~ msgstr "http://elegantthemes.com"
 
 #, fuzzy
 #~ msgid " Save Changes "
