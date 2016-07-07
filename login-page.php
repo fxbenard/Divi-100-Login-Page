@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Custom_Login_Page
- * @version 0.0.1
+ * @version 0.0.2
  */
 
 /*
@@ -9,7 +9,7 @@
 * Plugin URI: https://elegantthemes.com/
 * Description: This plugin gives you the option to customize your login screen
 * Author: Elegant Themes
-* Version: 0.0.1
+* Version: 0.0.2
 * Author URI: http://elegantthemes.com
 * Text Domain: divi-100-login-page
 * License: GPL3
@@ -57,7 +57,7 @@ class ET_Divi_100_Custom_Login_Page_Config {
 			'plugin_slug'        => $plugin_slug,
 			'plugin_id'          => "{$main_prefix}{$plugin_slug}",
 			'plugin_prefix'      => "{$main_prefix}{$plugin_slug}-",
-			'plugin_version'     => 20160602,
+			'plugin_version'     => 20160705,
 			'plugin_dir_path'    => plugin_dir_path( __FILE__ ),
 		);
 	}
